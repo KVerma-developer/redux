@@ -33,7 +33,8 @@ const reducer = (state = initialCapitalState, action) => {
   }
 };
 
-// Create the Redux store
+//method
+// Create  the Redux store 
 const store = createStore(reducer);
 
 // Logging initial state
@@ -44,7 +45,7 @@ const unsubscribe = store.subscribe(() =>
   console.log('Updated capital:', store.getState())
 );
 
-// Dispatching actions
+// Dispatching (amit) actions
 store.dispatch(donateMoney());
 store.dispatch(donateMoney());
 store.dispatch(donateMoney());
