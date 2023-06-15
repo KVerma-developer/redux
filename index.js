@@ -3,6 +3,10 @@ const createStore = redux.createStore;
 //combining ruducers 
 const combineRuducers = redux.combineReducers;
 
+const reduxLogger = require('redux-logger');
+const applyMiddleware = redux.applyMiddleware;
+const logger = reduxLogger.createLogger();
+
 
 
 
@@ -94,10 +98,14 @@ const rootReducer = combineRuducers({
 
 })
 
+/* This code is creating a Redux store using the `createStore` function from the `redux` library. It is
+passing in a combined reducer function `rootReducer` that combines two separate reducers for
+handling actions related to buying cakes and buying ice cream. */
 //then pass combined reducers here
-const store = createStore(rootReducer);
+
+const store = createStore(rootReducer,applyMiddleware(logger));
 console.log('initial state',store.getState())
-const unsubscribe = store.subscribe(()=>console.log('updated state',store.getState()))
+const unsubscribe = store.subscribe(()=>{})
 store.dispatch(buyCake())
 
 store.dispatch(buyIceCream())
