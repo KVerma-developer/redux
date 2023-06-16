@@ -1,10 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit'
-import cakeReducer from "./cakes/cakeReducers";
+import rootReducer from './rootReducer';
 
 const store = configureStore({
-    reducer: {
-      cake: cakeReducer
-    }
+    reducer:rootReducer
   });
  
 
