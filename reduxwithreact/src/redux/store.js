@@ -6,8 +6,7 @@ const store = configureStore({
       cake: cakeReducer
     }
   });
-// store.subscribe(()=>{console.log(store.getState())})
-// store.dispatch(buyCakes())
+ 
 
 
 
