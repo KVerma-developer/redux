@@ -1,3 +1,10 @@
+/* This is a code that uses Redux and Axios to fetch a list of users from an API and store them in the
+Redux store. It defines the initial state of the store, actions to be dispatched, and a reducer
+function to update the state based on the dispatched actions. It also uses the `thunkMiddleware` to
+handle asynchronous actions and `axios` to make API requests. Finally, it creates a store with the
+reducer and middleware, subscribes to the store to log the state changes, and dispatches the
+`fetchUsers` action to fetch the users from the API and update the store. */
+
 const redux = require('redux');
 const createStore= redux.createStore
 const applyMiddleware = redux.applyMiddleware
