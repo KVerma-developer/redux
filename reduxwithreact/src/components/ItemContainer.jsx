@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect} from 'react-redux';
+import { buyCake, buyIceCream } from '../redux';
 
 ///map state to prop function
 const ItemContainer = (props) => {
   return (
     <div>
         <h2> item - {props.item} </h2>
+        <button onClick={props.buyItem}>Buy Item</button>
       
     </div>
   )
@@ -29,5 +31,16 @@ const mapStateToProps = (state,ownProps) =>{
      }
 }
 
+const  mapDispatchToProps=(dispatch,ownProps)=>{
+    //returning action creator as props
+    const dispatchFunction = ownProps.cake ? ()=>dispatch(buyCake()) :
+    ()=>dispatch(buyIceCream())
 
-export default connect(mapStateToProps)(ItemContainer)
+    return {
+        buyItem:dispatchFunction
+    }
+
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(ItemContainer)
