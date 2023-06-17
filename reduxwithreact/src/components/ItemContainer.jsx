@@ -1,13 +1,19 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { connect} from 'react-redux';
 import { buyCake, buyIceCream } from '../redux';
 
 ///map state to prop function
 const ItemContainer = (props) => {
+    const[number,setNumber]=useState(1)
+    
   return (
     <div>
+        <p>from item container there is icecream input is not working becoz i have to setfuntion for it in redux</p>
         <h2> item - {props.item} </h2>
-        <button onClick={props.buyItem}>Buy Item</button>
+        <input type="text" value={number} onChange={e=>setNumber(e.target.value)}/>
+        
+        <button onClick={()=>props.buyItem(number)}>Buy Item</button>
+        <hr/>
       
     </div>
   )
@@ -31,10 +37,11 @@ const mapStateToProps = (state,ownProps) =>{
      }
 }
 
+//i have to do 
 const  mapDispatchToProps=(dispatch,ownProps)=>{
     //returning action creator as props
-    const dispatchFunction = ownProps.cake ? ()=>dispatch(buyCake()) :
-    ()=>dispatch(buyIceCream())
+    const dispatchFunction = ownProps.cake ? (number)=>dispatch(buyCake(number)) :
+    (number)=>dispatch(buyIceCream(number))
 
     return {
         buyItem:dispatchFunction
