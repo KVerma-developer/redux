@@ -49,5 +49,16 @@ const  mapDispatchToProps=(dispatch,ownProps)=>{
 
 }
 
+ /// if you only want to dispatch funtion not subscribe to the state change to store then you can change scenarios where
+ //you define map dispatch props but not map state the props in this case you have to pass null as your first arguement to connect as null
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(ItemContainer)
+
+/* `export default connect(null,mapDispatchToProps)(ItemContainer)` is exporting a connected component
+`ItemContainer` with `mapDispatchToProps` function passed as the second argument to `connect`. This
+means that the `buyItem` action creator function returned from `mapDispatchToProps` will be
+available as a prop in the `ItemContainer` component, but it will not subscribe to any changes in
+the Redux store state. The first argument to `connect` is `null`, which means that the
+`ItemContainer` component will not receive any state from the Redux store. */
+// export default connect(null,mapDispatchToProps)(ItemContainer)
